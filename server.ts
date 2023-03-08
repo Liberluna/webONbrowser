@@ -1,19 +1,11 @@
-import { Application } from "https://deno.land/x/oak/mod.ts";
-import { encode } from "https://deno.land/std@0.92.0/encoding/base64.ts";
+import express from "npm:express@4";
 
-const app = new Application();
+const app = express();
 
-const router = new Router();
-router
-  .post("/proxy", (ctx) => {
-    const res=await fetch("http://example.com");
-    const arrayBuffer=await res.arrayBuffer();
-    const b64=encode(arrayBuffer);
-    ctx.response.body = {
-      body:b64,
-    };
-  });
-app.use(router.routes());
-app.use(router.allowedMethods());
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
-await app.listen({ port: 8000 });
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
