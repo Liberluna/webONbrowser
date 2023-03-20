@@ -1,6 +1,6 @@
 {
   "tasks":{
-    "start":"deno run -A server.ts",
+    "run":"deno run -A server.ts",
     "dev":"deno run -A server.ts --dev",
     "build":"deno run -A build.ts --build"
   }

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "jsx-dom": "https://esm.run/jsx-dom",
+    "preact": "https://esm.run/preact"
+  }
+}

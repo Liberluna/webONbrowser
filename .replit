@@ -1,6 +1,6 @@
 run = "deno task dev"
 
-hidden = [".deno"]
+hidden = [".deno","./cache"]
 
 [languages.deno]
 pattern = "**/*.{ts,js}"

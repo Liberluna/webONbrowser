@@ -1,11 +1,15 @@
 import { serve } from 'https://deno.land/std/http/server.ts'
 import { Hono } from 'https://deno.land/x/hono/mod.ts'
-import { watch } from "./build.ts"
+import { watch, build } from "./build.ts"
 import { mime } from "https://deno.land/x/mimetypes@v1.0.0/mod.ts"
 
 if(Deno.args.includes("--dev")){
   watch()
+}else{
+  await build()
 }
+
+
 const app = new Hono()
 app.use('*',async(ctx,next)=>{
   const _path=ctx._path
@@ -25,7 +29,6 @@ app.get('/*',async(ctx)=>{
       return ctx.notFound()
     }
   }
-
   return ctx.body(filedata)
 })
 
