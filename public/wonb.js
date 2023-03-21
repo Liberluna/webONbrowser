@@ -301,23 +301,50 @@
 
   // src/browser/components/Omnibox.tsx
   var Omnibox_default = class extends m {
-    constructor() {
-      super();
-      this.state = {};
+    constructor(props) {
+      super(props);
+      this.state = {
+        omni: ""
+      };
+    }
+    doInput(e2) {
+      this.state.omni = e2.target.value;
+    }
+    doSubmit(e2) {
+      e2.preventDefault();
+      this.props.onEnter(this.state.omni);
+      return false;
+    }
+    doFocus(e2) {
+      console.log(0);
+      e2.target.select();
     }
     render() {
       return /* @__PURE__ */ d("div", null, /* @__PURE__ */ d(
-        "input",
+        "form",
         {
-          class: "omnibox-input",
-          style: {
-            width: "90%",
-            height: "3em",
-            borderRadius: "1.5em"
-          },
-          placeholder: "Input URL..."
-        }
+          class: "omnibox-form",
+          onSubmit: this.doSubmit.bind(this)
+        },
+        /* @__PURE__ */ d(
+          "input",
+          {
+            class: "omnibox-input",
+            style: {
+              width: "90%",
+              height: "20px",
+              borderRadius: "10px"
+            },
+            placeholder: "Input URL...",
+            onInput: this.doInput.bind(this),
+            onFocus: this.doFocus.bind(this)
+          }
+        )
       ));
+    }
+  };
+  Omnibox_default.defaultProps = {
+    onEnter: () => {
     }
   };
 
