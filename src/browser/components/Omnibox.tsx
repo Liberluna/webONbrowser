@@ -11,7 +11,9 @@ export default class extends Component{
     };
   }
   doInput(e){
-    this.state.omni=e.target.value;
+    this.setState({
+      omni:e.target.value
+    })
   }
   doSubmit(e){
     e.preventDefault();
@@ -19,20 +21,25 @@ export default class extends Component{
     return false;
   }
   doFocus(e){
-    console.log(0)
     e.target.select();
   }
+  componentDidUpdate(){
+  
+  }
   render(){
-    return (
-      <div>
+    return ( 
         <form
           class="omnibox-form"
           onSubmit={this.doSubmit.bind(this)}
+          style={{
+            width:"100%",
+            height:"100%"
+          }}
         >
           <input
             class="omnibox-input"
             style={{
-              width: '90%',
+              width: '100%',
               height: '20px',
               borderRadius: '10px',
             }}
@@ -41,7 +48,6 @@ export default class extends Component{
             onFocus={this.doFocus.bind(this)}
           />
         </form>
-      </div>
     )
   }
 }

@@ -1,6 +1,11 @@
 @import "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap";
 
-/* src/style/main.css */
 body {
   font-family: "Noto Sans JP", sans-serif;
+  padding:0px;
+  margin:0px;
+}
+#app{
+  width:100%;
+  height:100%;
 }

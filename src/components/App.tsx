@@ -7,9 +7,7 @@ export default class extends Component{
     this.state = {};
   }
   render() {
-    return (<div>
-      <h1>WonB</h1>
-      <p>By Liberluna</p>
+    return (<div style={{width:"100%",height:"100%"}}>
       <Browser/>
     </div>)
   }

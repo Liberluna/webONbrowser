@@ -1,6 +1,6 @@
 {
   "imports": {
-    "jsx-dom": "https://esm.run/jsx-dom",
+    "ky": "https://esm.run/ky",
     "preact": "https://esm.run/preact"
   }
 }

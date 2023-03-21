@@ -14,12 +14,14 @@ if(Deno.args.includes("--dev")){
 const app = new Hono()
 app.use('*',async(ctx,next)=>{
   const _path=new URL(ctx.req.url).pathname
+  console.log(_path)
   ctx.set("path",_path.at(-1)==="/" ? _path.slice(0,-1) : _path)
   await next()
 })
-app.post('/proxy',async(ctx)=>{
-  const datas=await ctx.req.parseBody();
-  const url=datas.url.toString();
+app.get('/proxy',async(ctx)=>{
+  const datas=ctx.req.query()
+  datas.url=decodeURIComponent(datas.url)
+  const url=datas.url
   if(!isurl(url))
     return reqErr(ctx,"Invalid data: 'url'")
   const req=Object.assign({

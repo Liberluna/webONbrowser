@@ -1,0 +1,19 @@
+{
+  "tasks":{
+    "run":"deno run -A server.ts",
+    "dev":"deno run -A server.ts --dev",
+    "build":"deno run -A build.ts --build"
+  },
+  "importmap":"importmap.json",
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "jsx": "preact",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "fragment",
+    "lib": ["dom"]
+  },
+  "imports": {
+    "ky": "https://esm.run/ky",
+    "preact": "https://esm.run/preact"
+  }
+}

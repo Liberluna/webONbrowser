@@ -14,6 +14,7 @@ const buildOptions={
   })],
   jsxFactory: 'h',
   jsxFragment: 'Fragment',
+  loader: { '.html': 'base64' },
 }
 export async function watch(){
   const ctx= await esbuild.context(buildOptions)
